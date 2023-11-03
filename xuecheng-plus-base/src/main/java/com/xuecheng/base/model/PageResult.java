@@ -16,7 +16,7 @@ import java.util.List;
 @ToString
 public class PageResult<T> implements Serializable {
 
-    // 数据列表
+    //数据列表
     private List<T> items;
 
     //总记录数
@@ -34,6 +34,4 @@ public class PageResult<T> implements Serializable {
         this.page = page;
         this.pageSize = pageSize;
     }
-
-
 }
