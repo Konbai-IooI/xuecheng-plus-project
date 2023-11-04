@@ -22,6 +22,7 @@ public class CourseBaseInfoController {
     @PostMapping("/course/list")
     public PageResult<CourseBase> list(PageParams pageParams, @RequestBody(required = false) QueryCourseParamsDto queryCourseParamsDto) {
 
+
         CourseBase courseBase = new CourseBase();
         courseBase.setName("测试");
         courseBase.setCreateDate(LocalDateTime.now());
