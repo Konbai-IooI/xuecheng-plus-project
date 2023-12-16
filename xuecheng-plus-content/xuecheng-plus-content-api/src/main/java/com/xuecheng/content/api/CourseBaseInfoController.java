@@ -32,6 +32,7 @@ public class CourseBaseInfoController {
         PageResult<CourseBase> pageResult = new PageResult<CourseBase>(courseBases, 10, 1, 10);
 
         return pageResult;
+
     }
 
 }
