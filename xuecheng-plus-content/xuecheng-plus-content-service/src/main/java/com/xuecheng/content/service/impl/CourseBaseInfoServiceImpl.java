@@ -144,6 +144,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
             BeanUtils.copyProperties(courseMarketNew, courseMarket);
             // 更新
             return courseMarketMapper.updateById(courseMarket);
+
         }
     }
 }
