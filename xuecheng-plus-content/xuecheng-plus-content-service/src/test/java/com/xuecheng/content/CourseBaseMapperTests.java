@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.mapper.CourseBaseMapper;
+import com.xuecheng.content.model.dto.CourseCategoryTreeDto;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
 import com.xuecheng.content.model.po.CourseBase;
+import com.xuecheng.content.service.CourseCategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
@@ -23,6 +25,9 @@ public class CourseBaseMapperTests {
 
     @Autowired
     CourseBaseMapper courseBaseMapper;
+
+    @Autowired
+    CourseCategoryService courseCategoryService;
 
     @Test
     public void test1() {
@@ -58,5 +63,12 @@ public class CourseBaseMapperTests {
         // List<T> items, long counts, long page, long pageSize
         PageResult<CourseBase> courseBasePageResult = new PageResult<>(records, total, pageParams.getPageNo(), pageParams.getPageSize());
         System.out.println(courseBasePageResult);
+    }
+
+
+    @Test
+    public void test2() {
+        List<CourseCategoryTreeDto> courseCategoryTreeDtoList = courseCategoryService.queryTreeNodes("1");
+        System.out.println(courseCategoryTreeDtoList);
     }
 }
