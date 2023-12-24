@@ -5,6 +5,7 @@ import com.xuecheng.content.model.dto.TeachplanDto;
 import com.xuecheng.content.service.TeachplanService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +13,11 @@ import java.util.List;
 
 /**
  * @author iooi
- * description TODO
+ * description 课程计划
  * @data 2023/12/23 20:43
  */
 @Api(value = "课程计划编辑接口", tags = "课程计划编辑接口")
+@Slf4j
 @RestController
 public class TeachplanController {
 
@@ -39,5 +41,15 @@ public class TeachplanController {
     @DeleteMapping("/teachplan/{teachplanId}")
     public void deleteTeachplan(@PathVariable Long teachplanId) {
         teachplanService.deleteTeachplan(teachplanId);
+    }
+
+    @PostMapping("/teachplan/moveup/{teachplanId}")
+    public void moveUp(@PathVariable Long teachplanId) {
+        teachplanService.moveUp(teachplanId);
+    }
+
+    @PostMapping("/teachplan/movedown/{teachplanId}")
+    public void moveDown(@PathVariable Long teachplanId) {
+        teachplanService.moveDown(teachplanId);
     }
 }
